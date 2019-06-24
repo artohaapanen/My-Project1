@@ -2,11 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="{{ asset('css/mystyle.css') }}" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body> 
+    	{% block body %}       
+        	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		    <!-- Brand/logo -->
+		    <a class="navbar-brand" href="{{ path('welcome') }}">Home</a>
+		    
+		    <!-- Links -->
+		     <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" href="{{ path('hello_page') }}">Hello Page</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Toinen sivu</a>
+		      </li>
+		    </ul> 
+		  </nav>
+	  	{% endblock %}
+        <main role="main">
+    		{% block main %}{% endblock %}
+  		</main>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

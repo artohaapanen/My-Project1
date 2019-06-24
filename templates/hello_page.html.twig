@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Harjoitus 2{% endblock %}
+
+{% block main %}
+    {{ dump() }}
+    <div class="container-fluid">
+      <h3>Symfony 4 - harjoitus 2</h3>
+      <p>Hei, {{ app.request.query.get('name') | default('testi') }}</p>
+    </div>
+  </main>
+{% endblock %}
