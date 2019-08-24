@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artikkeli sovellus{% endblock %}
+
+{% block body %}
+   <h1>Artikkelit</h1>
+   {% if articles %}
+      <table id="articles" class="table table-striped"> <!-- id="articles" on main.js koodia varten -->
+      <thead>
+         <tr>
+            <th>Otsikko</th>
+            <th>Toiminto</th>
+         </tr>
+      <thead>
+      <tbody>
+         {% for article in articles %}
+            <tr>
+               <!-- korvattu alla olevalla komennolla: <td> {#{{ artikkeli }}#} </td>-->
+               <td>{{ article.title }}</td> <!-- nyt haetaan tietokannasta -->
+               <td>
+                  <!--<a href="/article/1" class="btn btn-dark">Näytä</a> -->
+                  <a href="/article/{{ article.id }}" class="btn btn-dark ">Näytä</a>
+                  <a href="/article/edit{{ article.id }}" class="btn btn-light ">Muokkaa</a>
+                  <a href="#" class="btn btn-danger delete-article" data-id="{{ article.id }}">Delete</a>
+               </td>
+            </tr>
+         {% endfor %}
+      </tbody>
+      </table>
+   {% else %}
+      <p>Ei artikkeleita</p>
+   {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+   <script src="/js/main.js"></script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Muokkaa artikkelia{% endblock %}
+
+{% block body %}
+
+    {# Näytetään lomake #}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}
